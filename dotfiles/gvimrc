@@ -2,7 +2,5 @@ set gfn=MesloLGMDZ:h18
 set transparency=2
 set guioptions=aAce
 
-if has("gui_macvim")
-  macmenu &File.New\ Tab key=<nop>
-  map <D-t> <Plug>PeepOpen
-end
+macmenu &File.New\ Tab key=<nop>
+map <D-t> <Plug>PeepOpen
