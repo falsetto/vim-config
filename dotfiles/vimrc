@@ -1,5 +1,31 @@
+set nocompatible
+
+" global config
+filetype plugin indent on
+set backspace=eol,indent,start
+set encoding=utf-8
+set hlsearch
+set incsearch
+set linebreak
+set number
+set ruler
+syntax enable
+
+if has ("autocmd")
+  " File type detection. Indent based on filetype. Recommended.
+  filetype plugin indent on
+endif
+
+" pathogen
 call pathogen#infect()
 
-syntax enable
+" ctags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+map <C-\> :tnext<CR>
+
+" solarized
 set background=light
 colorscheme solarized
+
+" zoomwin
+map <Leader><Leader> :ZoomWin<CR>
