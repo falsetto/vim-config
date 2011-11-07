@@ -1,15 +1,20 @@
 set nocompatible
+" auto-reload vimrc after edits
+autocmd! bufwritepost ~/.vimrc source %
 
 " global config
 filetype plugin indent on
+let mapleader = ","
 set backspace=eol,indent,start
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 set encoding=utf-8
+set gdefault
 set hlsearch
 set incsearch
 set linebreak
 set number
+set relativenumber
 set ruler
 syntax enable
 
@@ -17,6 +22,36 @@ if has ("autocmd")
   " File type detection. Indent based on filetype. Recommended.
   filetype plugin indent on
 endif
+
+" abbreviations
+ab rbb '#!/usr/bin/env ruby'
+
+" custom mappings
+inoremap <C-'> ="
+" " force me to re-learn the mapping
+inoremap =" <nop>
+inoremap <C-Return> <CR><CR><C-o>k<C-t>
+inoremap jj <ESC>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC.local<cr>
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <Leader><S-s> :w !sudo tee %<Return>
+" " navigate screen lines, rather than literal lines
+nnoremap j gj
+nnoremap k gk
+" " disable arrow keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " pathogen
 call pathogen#infect()
