@@ -68,5 +68,9 @@ colorscheme solarized
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 
+" vimroom
+let g:vimroom_guibackground = "#fdf6e3"
+let g:vimroom_ctermbackground = 15
+
 " zoomwin
 map <Leader><Leader> :ZoomWin<CR>
