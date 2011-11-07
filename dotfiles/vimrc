@@ -3,6 +3,8 @@ set nocompatible
 " global config
 filetype plugin indent on
 set backspace=eol,indent,start
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
 set encoding=utf-8
 set hlsearch
 set incsearch
@@ -26,6 +28,10 @@ map <C-\> :tnext<CR>
 " solarized
 set background=light
 colorscheme solarized
+
+" syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
 
 " zoomwin
 map <Leader><Leader> :ZoomWin<CR>
