@@ -16,6 +16,7 @@ set linebreak
 set number
 set relativenumber
 set ruler
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
 syntax enable
 
 if has ("autocmd")

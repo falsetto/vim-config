@@ -2,5 +2,5 @@ set gfn=MesloLGMDZ:h18
 set transparency=2
 set guioptions=aAce
 
-macmenu &File.New\ Tab key=<nop>
-map <D-t> <Plug>PeepOpen
+" macmenu &File.New\ Tab key=<nop>
+" map <D-t> <Plug>PeepOpen
