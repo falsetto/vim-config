@@ -1,9 +1,14 @@
 set nocompatible
+
+" pathogen
+call pathogen#infect()
+filetype off
+syntax enable
+
 " auto-reload vimrc after edits
 autocmd! bufwritepost ~/.vimrc source %
 
 " global config
-filetype plugin indent on
 let mapleader = ","
 set backspace=eol,indent,start
 set backupdir=~/.vim/backup
@@ -17,7 +22,6 @@ set number
 set relativenumber
 set ruler
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
-syntax enable
 
 if has ("autocmd")
   " File type detection. Indent based on filetype. Recommended.
@@ -53,9 +57,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-" pathogen
-call pathogen#infect()
 
 " ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
