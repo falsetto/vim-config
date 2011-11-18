@@ -4,6 +4,7 @@ set nocompatible
 call pathogen#infect()
 filetype off
 syntax enable
+filetype plugin indent on
 
 " auto-reload vimrc after edits
 autocmd! bufwritepost ~/.vimrc source %
@@ -17,22 +18,18 @@ set encoding=utf-8
 set gdefault
 set hlsearch
 set incsearch
+set invmmta
 set linebreak
 set number
 set relativenumber
 set ruler
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
 
-if has ("autocmd")
-  " File type detection. Indent based on filetype. Recommended.
-  filetype plugin indent on
-endif
-
 " abbreviations
 ab rbb '#!/usr/bin/env ruby'
 
 " custom mappings
-inoremap <C-'> ="
+inoremap <D-'> ="
 " " force me to re-learn the mapping
 inoremap =" <nop>
 inoremap <C-Return> <CR><CR><C-o>k<C-t>
@@ -61,6 +58,9 @@ inoremap <right> <nop>
 " ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
+
+" ctrl-p
+let g:ctrlp_working_path_mode = 0
 
 " solarized
 set background=light
