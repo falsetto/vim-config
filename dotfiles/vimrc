@@ -2,6 +2,7 @@ set nocompatible
 
 " pathogen
 call pathogen#infect()
+call pathogen#helptags()
 filetype off
 syntax enable
 filetype plugin indent on
