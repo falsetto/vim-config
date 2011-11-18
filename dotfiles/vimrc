@@ -67,6 +67,11 @@ map <C-\> :tnext<CR>
 " ctrl-p
 let g:ctrlp_working_path_mode = 0
 
+" easymotion
+let g:EasyMotion_mapping_f = '\f'
+let g:EasyMotion_mapping_t = '\t'
+let g:EasyMotion_mapping_w = 'ww'
+
 " solarized
 set background=light
 colorscheme solarized
@@ -80,4 +85,4 @@ let g:vimroom_guibackground = "#fdf6e3"
 let g:vimroom_ctermbackground = 15
 
 " zoomwin
-map <Leader><Leader> :ZoomWin<CR>
+map \\ :ZoomWin<CR>
