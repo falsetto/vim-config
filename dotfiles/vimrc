@@ -43,6 +43,7 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <Leader><S-s> :w !sudo tee %<Return>
+nnoremap <Leader>t :tag 
 " " navigate screen lines, rather than literal lines
 nnoremap j gj
 nnoremap k gk
@@ -72,6 +73,7 @@ let g:ctrlp_working_path_mode = 0
 let g:EasyMotion_mapping_f = '\f'
 let g:EasyMotion_mapping_t = '\t'
 let g:EasyMotion_mapping_w = 'ww'
+hi link EasyMotionTarget Error
 
 " solarized
 set background=light
