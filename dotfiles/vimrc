@@ -1,14 +1,12 @@
 set nocompatible
-
-" pathogen
-call pathogen#infect()
-call pathogen#helptags()
 filetype off
-syntax enable
-filetype plugin indent on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
 " auto-reload vimrc after edits
-autocmd! bufwritepost ~/.vimrc source %
+autocmd! bufwritepost ~/.vim/dotfiles/vimrc source %
 
 " global config
 let mapleader = ","
@@ -59,8 +57,34 @@ inoremap <right> <nop>
 
 " indenting
 autocmd FileType html setlocal shiftwidth=4 tabstop=4
+autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
+
+" bundles
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'chrismetcalf/vim-yankring'
+Bundle 'falsetto/vim-onlinedoc'
+Bundle 'joestelmach/javaScriptLint.vim'
+Bundle 'kana/vim-scratch'
+Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'mikewest/vimroom'
+Bundle 'mileszs/ack.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'nathanaelkane/vim-command-w'
+Bundle 'pangloss/vim-javascript'
+Bundle 'scrooloose/syntastic'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tsaleh/vim-align'
+Bundle 'vim-scripts/ReplaceWithRegister'
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'vim-scripts/bufkill.vim'
 
 " ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -72,8 +96,11 @@ let g:ctrlp_working_path_mode = 0
 " easymotion
 let g:EasyMotion_mapping_f = '\f'
 let g:EasyMotion_mapping_t = '\t'
-let g:EasyMotion_mapping_w = 'ww'
+let g:EasyMotion_mapping_w = 'ff'
 hi link EasyMotionTarget Error
+
+" javascriptlint
+  let jslint_command_options = '-conf ~/.vim/conf/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
 
 " solarized
 set background=light
@@ -89,3 +116,6 @@ let g:vimroom_ctermbackground = 15
 
 " zoomwin
 map \\ :ZoomWin<CR>
+
+syntax enable
+filetype plugin indent on

@@ -2,5 +2,10 @@ set gfn=MesloLGMDZ:h18
 set transparency=2
 set guioptions=aAce
 
+" command-w plugin
+macmenu &File.Close key=<nop>
+nmap <D-w> :CommandW<CR>
+imap <D-w> <Esc>:CommandW<CR>
+
 " macmenu &File.New\ Tab key=<nop>
 " map <D-t> <Plug>PeepOpen
