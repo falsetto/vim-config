@@ -1,6 +1,7 @@
 set gfn=MesloLGMDZ:h18
 set transparency=2
 set guioptions=aAce
+set invmmta
 
 " command-w plugin
 macmenu &File.Close key=<nop>
