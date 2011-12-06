@@ -3,7 +3,7 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Bundle 'git://github.com/gmarik/vundle.git'
 
 " auto-reload vimrc after edits
 autocmd! bufwritepost ~/.vim/dotfiles/vimrc source %
@@ -64,30 +64,30 @@ autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
 
 " bundles
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chrismetcalf/vim-yankring'
-Bundle 'falsetto/vim-onlinedoc'
-Bundle 'joestelmach/javaScriptLint.vim'
-Bundle 'juvenn/mustache.vim'
-Bundle 'kana/vim-scratch'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'mikewest/vimroom'
-Bundle 'mileszs/ack.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'nathanaelkane/vim-command-w'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/syntastic'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tsaleh/vim-align'
-Bundle 'vim-scripts/ReplaceWithRegister'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'vim-scripts/bufkill.vim'
+Bundle 'git://github.com/Lokaltog/vim-easymotion.git'
+Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
+Bundle 'git://github.com/falsetto/vim-onlinedoc.git'
+Bundle 'git://github.com/joestelmach/javaScriptLint.vim.git'
+Bundle 'git://github.com/juvenn/mustache.vim.git'
+Bundle 'git://github.com/kana/vim-scratch.git'
+Bundle 'git://github.com/kchmck/vim-coffee-script.git'
+Bundle 'git://github.com/kien/ctrlp.vim.git'
+Bundle 'git://github.com/majutsushi/tagbar.git'
+Bundle 'git://github.com/mikewest/vimroom.git'
+Bundle 'git://github.com/mileszs/ack.vim.git'
+Bundle 'git://github.com/msanders/snipmate.vim.git'
+Bundle 'git://github.com/nathanaelkane/vim-command-w.git'
+Bundle 'git://github.com/pangloss/vim-javascript.git'
+Bundle 'git://github.com/scrooloose/syntastic.git'
+Bundle 'git://github.com/tomtom/tcomment_vim.git'
+Bundle 'git://github.com/tpope/vim-endwise.git'
+Bundle 'git://github.com/tpope/vim-surround.git'
+Bundle 'git://github.com/tpope/vim-unimpaired.git'
+Bundle 'git://github.com/tsaleh/vim-align.git'
+Bundle 'git://github.com/vim-scripts/ReplaceWithRegister.git'
+Bundle 'git://github.com/vim-scripts/ZoomWin.git'
+Bundle 'git://github.com/vim-scripts/bufkill.vim.git'
 
 " ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
