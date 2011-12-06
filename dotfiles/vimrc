@@ -25,6 +25,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
 
 " abbreviations
 ab rbb '#!/usr/bin/env ruby'
+ab fntel '%!grep "Kiosk\|NTE" -u'
 
 " custom mappings
 inoremap <D-'> ="
@@ -60,6 +61,7 @@ autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
 
 " bundles
 Bundle 'Lokaltog/vim-easymotion'
