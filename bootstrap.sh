@@ -1,4 +1,5 @@
 #!/bin/bash
+# curl -L git.io/vcb | bash
 
 echo '~> Installing ncurses-dev';
 sudo apt-get install ncurses-dev;
