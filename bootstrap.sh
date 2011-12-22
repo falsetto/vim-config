@@ -10,7 +10,7 @@ wget ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2;
 tar xjvf vim-7.3.tar.bz2;
 cd vim73;
 echo '~> Installing Vim';
-./configure --prefix=/usr --with-features=huge --disable-gui --without-x --enable-rubyinterp --enable-cscope --enable-multibyte;
+./configure --prefix=/usr --with-features=huge --disable-gui --without-x --enable-pythoninterp --enable-rubyinterp --enable-cscope --enable-multibyte;
 sudo make;
 sudo make install;
 echo '~> Cloning Vim config';
