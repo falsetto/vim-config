@@ -16,4 +16,5 @@ sudo make install;
 echo '~> Cloning Vim config';
 git clone git://github.com/falsetto/vim-config.git ~/.vim;
 ln -s ~/.vim/dotfiles/vimrc ~/.vimrc;
+vim -c "execute \"BundleInstall\" | q | q"
 echo '~> All set!';
