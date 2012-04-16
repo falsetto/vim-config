@@ -3,13 +3,14 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'git://github.com/gmarik/vundle.git'
 
 " auto-reload vimrc after edits
 autocmd! bufwritepost ~/.vim/dotfiles/vimrc source %
 
 " global config
 let mapleader = ","
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set backspace=eol,indent,start
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -24,13 +25,14 @@ set ruler
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
 
 " abbreviations
-ab rbb '#!/usr/bin/env ruby'
-ab fntel '%!grep "Kiosk\|NTE" -u'
+ab rbb #!/usr/bin/env ruby
+ab rdb require 'debugger'; debugger
+ab gnte '%!grep "Kiosk\|NTE" -u'
 
 " custom mappings
 inoremap <D-'> ="
 " " force me to re-learn the mapping
-inoremap =" <nop>
+inoremap <C-l> <space>=><space>
 inoremap <C-Return> <CR><CR><C-o>k<C-t>
 inoremap jj <ESC>
 nnoremap <C-h> <C-w>h
@@ -60,17 +62,37 @@ inoremap <right> <nop>
 autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
+autocmd FileType objc setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
 
 " bundles
+"Bundle 'git://github.com/Lokaltog/vim-easymotion.git'
+"Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+"Bundle 'git://github.com/astashov/vim-ruby-debugger.git'
+"Bundle 'git://github.com/behaghel/Rainbow_Parenthsis_Bundle.git'
+"Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
+"Bundle 'git://github.com/falsetto/vim-onlinedoc.git'
+"Bundle 'git://github.com/gregsexton/gitv.git'
+"Bundle 'git://github.com/kien/ctrlp.vim.git'
+"Bundle 'git://github.com/tpope/vim-unimpaired.git'
+"Bundle 'git://github.com/tsaleh/vim-align.git'
+"Bundle 'git://github.com/vim-ruby/vim-ruby.git'
+"Bundle 'git://github.com/vim-scripts/ReplaceWithRegister.git'
+"Bundle 'git://github.com/vim-scripts/ZoomWin.git'
+"Bundle 'git://github.com/vim-scripts/bufkill.vim.git'
+"Bundle 'git://github.com/vim-scripts/kkruby.vim.git'
 Bundle 'git://github.com/Lokaltog/vim-easymotion.git'
 Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+Bundle 'git://github.com/astashov/vim-ruby-debugger.git'
+Bundle 'git://github.com/behaghel/Rainbow_Parenthsis_Bundle.git'
 Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
 Bundle 'git://github.com/falsetto/vim-onlinedoc.git'
+Bundle 'git://github.com/gregsexton/gitv.git'
 Bundle 'git://github.com/joestelmach/javaScriptLint.vim.git'
 Bundle 'git://github.com/juvenn/mustache.vim.git'
 Bundle 'git://github.com/kana/vim-scratch.git'
+Bundle 'git://github.com/kana/vim-smartinput.git'
 Bundle 'git://github.com/kchmck/vim-coffee-script.git'
 Bundle 'git://github.com/kien/ctrlp.vim.git'
 Bundle 'git://github.com/majutsushi/tagbar.git'
@@ -81,14 +103,23 @@ Bundle 'git://github.com/nathanaelkane/vim-command-w.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
 Bundle 'git://github.com/rson/vim-conque.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
+Bundle 'git://github.com/stephenprater/cocoa.vim.git'
+Bundle 'git://github.com/taxilian/VimDebugger.git'
 Bundle 'git://github.com/tomtom/tcomment_vim.git'
 Bundle 'git://github.com/tpope/vim-endwise.git'
+Bundle 'git://github.com/tpope/vim-fugitive.git'
+Bundle 'git://github.com/tpope/vim-repeat.git'
 Bundle 'git://github.com/tpope/vim-surround.git'
 Bundle 'git://github.com/tpope/vim-unimpaired.git'
 Bundle 'git://github.com/tsaleh/vim-align.git'
+Bundle 'git://github.com/vim-ruby/vim-ruby.git'
 Bundle 'git://github.com/vim-scripts/ReplaceWithRegister.git'
 Bundle 'git://github.com/vim-scripts/ZoomWin.git'
 Bundle 'git://github.com/vim-scripts/bufkill.vim.git'
+Bundle 'git://github.com/vim-scripts/kkruby.vim.git'
+
+" clipboard
+set clipboard=unnamed
 
 " ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -101,8 +132,8 @@ let g:ctrlp_use_caching = 0
 " let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_max_depth = 6
 let g:ctrlp_dont_split = 'netrw'
-let g:ctrlp_extensions = ['tag']
-nnoremap <C-[> :CtrlPTag<cr>
+" let g:ctrlp_extensions = ['tag']
+" nnoremap <C-[> :CtrlPTag<cr>
 
 " easymotion
 let g:EasyMotion_mapping_f = '\f'
@@ -111,7 +142,10 @@ let g:EasyMotion_mapping_w = 'ff'
 hi link EasyMotionTarget Error
 
 " javascriptlint
-  let jslint_command_options = '-conf ~/.vim/conf/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
+let jslint_command_options = '-conf ~/.vim/conf/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
+
+" ruby-debugger
+let g:ruby_debugger_progname = 'mvim'
 
 " solarized
 set background=light

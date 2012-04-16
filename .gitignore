@@ -2,3 +2,5 @@
 .netrwhist
 tags
 backup/*.swo
+bundle/*
+backup
