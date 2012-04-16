@@ -4,6 +4,8 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'gmarik/vundle'
+
 " auto-reload vimrc after edits
 autocmd! bufwritepost ~/.vim/dotfiles/vimrc source %
 
