@@ -1,5 +1,11 @@
 set nocompatible
+set laststatus=2
+set encoding=utf-8
 filetype off
+set noswapfile
+
+let mapleader = ","
+" let maplocalleader = "\\"
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -10,7 +16,6 @@ Bundle 'gmarik/vundle'
 autocmd! bufwritepost ~/.vim/dotfiles/vimrc source %
 
 " global config
-let mapleader = ","
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set backspace=eol,indent,start
@@ -22,7 +27,7 @@ set hlsearch
 set incsearch
 set linebreak
 set number
-set relativenumber
+" set relativenumber
 set ruler
 set wildignore+=*/.git/*,*/build/*,*/.hg/*,*/.svn/*,*.so
 
@@ -64,9 +69,12 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 " indenting
+set shiftwidth=2 tabstop=2 expandtab
+autocmd FileType c setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType actionscript setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType sql setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType objc setlocal shiftwidth=4 tabstop=4
@@ -74,30 +82,48 @@ autocmd FileType php setlocal shiftwidth=4 tabstop=4 expandtab
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
 
 " bundles
-" Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
+Bundle 'git://github.com/Svelix/actionscript-vim-bundle.git'
+" Bundle 'jaxbot/brolink.vim'
+Bundle 'git@github.com:groenewege/vim-less.git'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+" Bundle 'git://github.com/astashov/vim-ruby-debugger.git'
+" Bundle 'git://github.com/behaghel/Rainbow_Parenthsis_Bundle.git'
+" Bundle 'git://github.com/gaverhae/vimclojure.git'
+" Bundle 'git://github.com/gregsexton/gitv.git'
+" Bundle 'git://github.com/henrik/vim-ruby-runner.git'
+" Bundle 'git://github.com/juvenn/mustache.vim.git'
+" Bundle 'git://github.com/kana/vim-scratch.git'
+" Bundle 'git://github.com/laktek/distraction-free-writing-vim.git'
+" Bundle 'git://github.com/mikewest/vimroom.git'
+" Bundle 'git://github.com/msanders/snipmate.vim.git'
+" Bundle 'git://github.com/rson/vim-conque.git'
+" Bundle 'git://github.com/sjl/splice.vim.git'
+" Bundle 'git://github.com/stephenprater/cocoa.vim.git'
+" Bundle 'git://github.com/taxilian/VimDebugger.git'
+Bundle 'git://github.com/vim-scripts/UltiSnips.git'
+" Bundle 'git://github.com/vim-scripts/VimClojure.git'
+" Bundle 'git://github.com/vim-scripts/kkruby.vim.git'
+" Bundle 'git://github.com/vim-scripts/paredit.vim.git'
+" Bundle 'https://github.com/goldfeld/vim-seek.git'
+" Bundle 'stephpy/vim-php-cs-fixer'
+" Bundle 'vim-scripts/camelcasemotion'
 Bundle 'git://github.com/Lokaltog/vim-easymotion.git'
+Bundle 'git://github.com/Lokaltog/vim-powerline.git'
 Bundle 'git://github.com/altercation/vim-colors-solarized.git'
-Bundle 'git://github.com/astashov/vim-ruby-debugger.git'
-Bundle 'git://github.com/behaghel/Rainbow_Parenthsis_Bundle.git'
-Bundle 'git://github.com/falsetto/vim-onlinedoc.git'
-Bundle 'git://github.com/gregsexton/gitv.git'
-Bundle 'git://github.com/henrik/vim-ruby-runner.git'
-Bundle 'git://github.com/joestelmach/javaScriptLint.vim.git'
-Bundle 'git://github.com/juvenn/mustache.vim.git'
-Bundle 'git://github.com/kana/vim-scratch.git'
-Bundle 'git://github.com/kchmck/vim-coffee-script.git'
+Bundle 'git://github.com/docunext/closetag.vim.git'
+" Bundle 'git://github.com/falsetto/vim-onlinedoc.git'
+Bundle 'git://github.com/joestelmach/lint.vim.git'
 Bundle 'git://github.com/kien/ctrlp.vim.git'
 Bundle 'git://github.com/majutsushi/tagbar.git'
-Bundle 'git://github.com/mikewest/vimroom.git'
+Bundle 'git://github.com/mattn/zencoding-vim.git'
 Bundle 'git://github.com/mileszs/ack.vim.git'
-Bundle 'git://github.com/msanders/snipmate.vim.git'
 Bundle 'git://github.com/nathanaelkane/vim-command-w.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
-Bundle 'git://github.com/rson/vim-conque.git'
+Bundle 'git://github.com/plasticboy/vim-markdown.git'
 Bundle 'git://github.com/scrooloose/nerdtree.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
-Bundle 'git://github.com/stephenprater/cocoa.vim.git'
-Bundle 'git://github.com/taxilian/VimDebugger.git'
 Bundle 'git://github.com/tomtom/tcomment_vim.git'
 Bundle 'git://github.com/tpope/vim-endwise.git'
 Bundle 'git://github.com/tpope/vim-fugitive.git'
@@ -109,7 +135,10 @@ Bundle 'git://github.com/vim-ruby/vim-ruby.git'
 Bundle 'git://github.com/vim-scripts/ReplaceWithRegister.git'
 Bundle 'git://github.com/vim-scripts/ZoomWin.git'
 Bundle 'git://github.com/vim-scripts/bufkill.vim.git'
-Bundle 'git://github.com/vim-scripts/kkruby.vim.git'
+Bundle 'https://github.com/danchoi/ri.vim.git'
+Bundle 'https://github.com/kchmck/vim-coffee-script.git'
+Bundle 'https://github.com/tsaleh/vim-matchit.git'
+Bundle 'https://github.com/vim-scripts/autotags.git'
 
 " clipboard
 " set clipboard=unnamed
@@ -119,6 +148,7 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
 " ctrl-p
+set wildignore+=*/dist/*
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_jump_to_buffer = 1
 let g:ctrlp_use_caching = 0
@@ -129,19 +159,35 @@ let g:ctrlp_extensions = ['tag']
 nnoremap <C-o> :CtrlPBuffer<cr>
 nnoremap <C-i> :CtrlPTag<cr>
 
+" dash
+map <silent> <D-d> <Plug>DashSearch
+
 " easymotion
 let g:EasyMotion_mapping_f = '\f'
 let g:EasyMotion_mapping_t = '\t'
 let g:EasyMotion_mapping_w = 'ff'
 hi link EasyMotionTarget Error
 
-" javascriptlint
-let jslint_command_options = '-conf ~/.vim/conf/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
+" lint.vim
+let jshint_options_file = '~/.vim/conf/jsh.conf'
+let disable_lint = 1
 
 " NERDTree
 nnoremap <Leader>nt :NERDTree<cr>
+
+" paredit
+" let g:paredit_mode = 0
+
+" php-cs-fixer
+" let g:php_cs_fixer_path = "/usr/local/bin/php-cs-fixer"
+
+" powerline
+let g:Powerline_colorscheme = 'solarized256'
+let g:Powerline_symbols = 'fancy'
+" let g:Powerline_theme = 'solarized256'
+
 " ruby-debugger
-let g:ruby_debugger_progname = 'mvim'
+" let g:ruby_debugger_progname = 'mvim'
 
 " solarized
 set background=light
@@ -151,12 +197,24 @@ colorscheme solarized
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 
+" vimclojure
+" let vimclojure#FuzzyIndent=1
+" let vimclojure#HighlightBuiltins=1
+" let vimclojure#HighlightContrib=1
+" let vimclojure#DynamicHighlighting=1
+" let vimclojure#ParenRainbow=1
+" let vimclojure#WantNailgun = 1
+" let vimclojure#NailgunClient = $HOME . "/.vim/lib/vimclojure-nailgun-client/ng"
+
 " vimroom
-let g:vimroom_guibackground = "#fdf6e3"
-let g:vimroom_ctermbackground = 15
+" let g:vimroom_guibackground = "#fdf6e3"
+" let g:vimroom_ctermbackground = 15
 
 " zoomwin
 map \\ :ZoomWin<CR>
+
+" filetype specific plugins
+" au BufNewFile,BufRead *.clj call PareditInitBuffer()
 
 syntax enable
 filetype plugin indent on
